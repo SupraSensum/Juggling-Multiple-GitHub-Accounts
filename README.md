@@ -33,13 +33,18 @@ To work with multiple GitHub accounts, you need to set up separate SSH keys for 
 
    Replace `github-second` with a custom alias for your second GitHub account.
 
-4. **Configure Git Repositories**: For each local repository, configure Git to use the correct SSH key by setting the repository's remote URL to use the alias defined in the SSH config. For the second account, you'd use:
+4. **Clone the Repo**: Replace the domain with the desired alias:
+   ```bash
+   git clone git@github-second:username/repo.git
+   ```
+
+5. **Configure Git Repositories**: For each local repository, configure Git to use the correct SSH key by setting the repository's remote URL to use the alias defined in the SSH config. For the second account, you'd use:
 
    ```bash
    git remote set-url origin git@github-second:username/repo.git
    ```
 
-5. **Set Local Git Identity (Optional)**: If needed, configure the local Git identity for each repository to use different user names or emails, useful if your GitHub accounts are set up with different details:
+6. **Set Local Git Identity (Optional)**: If needed, configure the local Git identity for each repository to use different user names or emails, useful if your GitHub accounts are set up with different details:
 
    ```bash
    git config user.name "Your Name"
@@ -48,7 +53,7 @@ To work with multiple GitHub accounts, you need to set up separate SSH keys for 
 
    This needs to be done in each repository where you want a specific identity (omit `--global` to set it locally).
 
-6. **Verify Configurations**: Ensure that the SSH keys are working and that Git is correctly using them. You can test SSH connection for each account by using:
+7. **Verify Configurations**: Ensure that the SSH keys are working and that Git is correctly using them. You can test SSH connection for each account by using:
 
    ```bash
    ssh -T git@github-second
